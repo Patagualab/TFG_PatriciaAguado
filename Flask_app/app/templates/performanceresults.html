@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <title>Resultados</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="../static/script.js"></script>
+</head>
+<body>
+    <div class="inline-divs1">
+        <a href="{{url_for('index')}}"><button class="button_back" type="submit">⬅️</button></a>
+    </div>
+    <div class="inline-divs1">
+        <h1 class="hd">Resultados de rendimiento:</h1>
+    </div>
+    <form id="form1" method="post">
+    <div class="select_inline_div">
+        <p>
+        <fieldset>
+        <legend>Base de datos</legend>
+            {% for database in opt_database %}
+                <input type="checkbox" id="{{ database }}" name="opt_database" value="{{ database }}"
+                {% if database in opt_database_check %}checked{% endif %}>
+                <label for="{{ database }}">{{ database }}</label><br>
+            {% endfor %}
+        </fieldset>
+        </p>
+    </div>
+    <div class="select_inline_div">
+        <p>
+        <fieldset>
+        <legend>Tamaño del conjunto en meses</legend>
+            {% for size in opt_size %}
+                <input type="checkbox" id="{{ size }}" name="opt_size" value="{{ size }}"
+                {% if size in opt_size_check %}checked{% endif %}>
+                <label for="{{ size }}">{{ size }} meses</label><br>
+            {% endfor %}
+        </fieldset>
+        </p>
+    </div>
+    <div class="select_pr_query">
+        <label for="queries">Consulta</label>
+        <select  class="selects_pr_qr" id="queries" name="q">
+            {% for q in opt_queries %}
+                <option value="{{ q[0] }}">{{ q[0] }}: {{ q[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <br>
+    <div class="checkbox_pr">
+        <fieldset>
+        <legend>Variables</legend>
+            {% for var in opt_variables %}
+                <input type="checkbox" id="{{ var }}" name="opt_var_check" value="{{ var }}"
+                {% if var in opt_var_check %}checked{% endif %}>
+                <label for="{{ var }}">{{ var }}</label><br>
+            {% endfor %}
+        </fieldset>
+    </div>
+    <br>
+    <div class="button">
+        <button class="button_update" type="submit">Actualizar</button>  
+    </div>
+    </form>
+    <br>
+    <div class=chart>{{ chart|safe }}</div>
+    <br>
+    <div>
+        <button class="button_save" type="button" onclick="downloadChart()">Guardar gráfica</button>
+    </div>
+</body>
+</html>
