@@ -1,0 +1,89 @@
+services:
+  postgresdb:
+    image: postgres:16.0
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "5"
+    container_name: postgres_db_container
+    environment:
+      - POSTGRES_DB=postgres_db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    volumes:
+      - ./postgresdb/postgres_db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  influxdb:
+    image: influxdb:2.7
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "5"
+    container_name: influx_db_container
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=admin123456789
+      - DOCKER_INFLUXDB_INIT_ORG=myorg
+      - DOCKER_INFLUXDB_INIT_BUCKET=mybucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=mytoken
+    ports:
+      - "8086:8086"
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg15
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "5"
+    container_name: timescale_db_container
+    environment:
+      - POSTGRES_DB=timescale_db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5434:5432"
+
+  opentsdb:
+    image: petergrace/opentsdb-docker:latest
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "5"
+    container_name: opents_db_container
+    environment:
+      - TSDB_ENABLE_STATS=true
+    ports:
+      - "4242:4242"
+
+  kairosdb:
+    image: elastisys/kairosdb:1.2.1
+    depends_on:
+      - cassandra
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "2"
+    container_name: kairos_db_container
+    environment:
+      - CASSANDRA_HOSTS=cassandra
+      - CASSANDRA_PORT=9042
+    ports:
+      - "8080:8080"
+
+  cassandra:
+    image: cassandra:3.11
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "2"
+    container_name: cassandra_db_container
+    environment:
+      - CASSANDRA_CLUSTER_NAME=mycluster
+    ports:
+      - "9042:9042"
+
+volumes:
+  postgres_db_data:
