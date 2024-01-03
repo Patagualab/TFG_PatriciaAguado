@@ -92,7 +92,7 @@ Las herramientas principales que hemos utilizado para llevar acabo este proyecto
 
 ## Imagenes utilizadas en Docker 🖼️
 
-Las imágenes de Docker utilizadas para definir los servicios de bases de datos en el archivo docker-compose.yml son las siguientes:
+Las imágenes de Docker utilizadas para definir los servicios de bases de datos en el archivo *'docker-compose.yml'* son las siguientes:
 
 * [PostgreSQL](https://hub.docker.com/_/postgres) - Imagen oficial de Docker para PostgreSQL
 * [InfluxDB](https://hub.docker.com/_/influxdb) - Imagen oficial de Docker para InfluxDB
