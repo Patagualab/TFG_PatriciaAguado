@@ -49,9 +49,16 @@ Las herramientas principales que hemos utilizado para llevar acabo este proyecto
 * [Flask](https://flask.palletsprojects.com/en/3.0.x/) - Usado para la aplicación web
 * [Plotly](https://plotly.com/python/) - Usado para generar gráficos interactivos 
 
-## Imagenes utilizadas en Docker 📦
+## Imagenes utilizadas en Docker 🖼️
 
-_Agrega notas adicionales sobre como hacer deploy_
+Las imágenes de Docker utilizadas para definir los servicios de bases de datos en el archivo docker-compose.yml son las siguientes:
+
+* [PostgreSQL](https://hub.docker.com/_/postgres) - Imagen oficial de Docker para PostgreSQL
+* [InfluxDB](https://hub.docker.com/_/influxdb) - Imagen oficial de Docker para InfluxDB
+* [TimescaleDB](https://hub.docker.com/r/timescale/timescaledb) - Imagen de Docker para TimescaleDB
+* [OpenTSDB](https://hub.docker.com/r/petergrace/opentsdb-docker) - Imagen de Docker para OpenTSDB
+* [KairosDB](https://hub.docker.com/r/elastisys/kairosdb) - Imagen de Docker para KairosDB
+* [Cassandra](https://hub.docker.com/_/cassandra) - Imagen oficial de Docker para Cassandra
 
 ## Autores ✒️
 
