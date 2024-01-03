@@ -6,14 +6,6 @@ El objetivo de este proyecto es realizar un estudio sobre el rendimiento de dife
 
 Para ejecutar este proyecto se necesitan los archivos de este repositorio y el directorio con los datos originales que se tendrán que solicitar de manera privada si se dispone de los permisos necesarios.
 
-### Pre-requisitos 📋
-
-En el archivo 'requirements.txt' podemos encontrar las bibliotecas de Python que hemos utilizado durante el desarrollo del trabajo. Para instalarlas deberemos ejecutar el siguiente comando y si lo desea puede crear antes un entorno virtual para que no afecten estás versiones a otras que tenga instaladas en su máquina.
-
-```
-pip install -r requirements.txt
-```
-
 ### Instalación 🔧
 
 Para ejecutar este proyecto debemos instalar las siguientes herramientas de software:
@@ -30,10 +22,18 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl restart docker
 sudo chmod 666 /var/run/docker.sock
-
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
+### Pre-requisitos 📋
+
+En el archivo 'requirements.txt' podemos encontrar las bibliotecas de Python que hemos utilizado durante el desarrollo del trabajo. Para instalarlas deberemos ejecutar el siguiente comando y si lo desea puede crear antes un entorno virtual para que no afecten estás versiones a otras que tenga instaladas en su máquina.
+
+```
+pip install -r requirements.txt
+```
+## Ejecución 💻
+
+_Explica como ejecutar las pruebas automatizadas para este sistema_
 
 ## Utilización de la aplicación ⚙️
 
