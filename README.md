@@ -26,14 +26,14 @@ sudo chmod 666 /var/run/docker.sock
 
 ### Pre-requisitos 📋
 
-En el archivo 'requirements.txt' podemos encontrar las bibliotecas de Python que hemos utilizado durante el desarrollo del trabajo. Para instalarlas deberemos ejecutar el siguiente comando y si lo desea puede crear antes un entorno virtual para que no afecten estás versiones a otras que tenga instaladas en su máquina.
+En el archivo *'requirements.txt'* podemos encontrar las bibliotecas de Python que hemos utilizado durante el desarrollo del trabajo. Para instalarlas deberemos ejecutar el siguiente comando y si lo desea puede crear antes un entorno virtual para que no afecten estás versiones a otras que tenga instaladas en su máquina.
 
 ```
 pip install -r requirements.txt
 ```
 ## Ejecución 💻
 
-Teniendo en cuenta que hemos seguido los pasos anteriores y tenemos todo el software necesario, el primer paso será descargar este repositorio y obtener la carpeta 'raw_data' con los datos originales que ubicaremos en 'TFG_PatriciaAguado/data/'.
+Teniendo en cuenta que hemos seguido los pasos anteriores y tenemos todo el software necesario, el primer paso será descargar este repositorio y obtener la carpeta *'raw_data'* con los datos originales que ubicaremos en *'TFG_PatriciaAguado/data/'*.
 
 A continuación, tendremos que dar permisos de ejecución al usuario para los scripts de bash:
 
@@ -46,22 +46,22 @@ En primer lugar, abrimos una terminal en 'TFG_PatriciaAguado' y ejecutamos el sc
 ```
 ./process_data.sh
 ```
-Este se encarga de ejecutar en orden los programas de Python que se encuentran en el directorio 'data'. Estos consisten en:
-* 'read_data.py': leer todos los archivos que se encuentran en el directorio 'data/raw_data' y juntarlos para generar el archivo 'data/silver_data.xlsx'.
-* 'clean_data.py': realizar sobre 'silver_data.xlsx' un proceso de limpieza de datos y generar en el directorio 'data/gold_data'} un archivo con todos los datos de calidad y uno por cada tamaño especificado (3, 6, 10 y 13 meses).
-* 'json_schemas.py': crear un directorio 'data/json_schemas', en el que se crea un directorio por cada base de datos y en cada uno de ellos un archivo de formato JSON para cada tamaño.
+Este se encarga de ejecutar en orden los programas de Python que se encuentran en el directorio *'data'*. Estos consisten en:
+* *'read_data.py'*: leer todos los archivos que se encuentran en el directorio *'data/raw_data'* y juntarlos para generar el archivo *'data/silver_data.xlsx'*.
+* *'clean_data.py'*: realizar sobre *'silver_data.xlsx'* un proceso de limpieza de datos y generar en el directorio 'data/gold_data'} un archivo con todos los datos de calidad y uno por cada tamaño especificado (3, 6, 10 y 13 meses).
+* *'json_schemas.py'*: crear un directorio *'data/json_schemas'*, en el que se crea un directorio por cada base de datos y en cada uno de ellos un archivo de formato JSON para cada tamaño.
   
-En segundo lugar, una vez que ya tenemos todos los archivos preparados con los datos que queremos insertar para las pruebas de rendimiento en el directorio 'data/json_schemas' ejecutamos el script 'docker_db.sh':
+En segundo lugar, una vez que ya tenemos todos los archivos preparados con los datos que queremos insertar para las pruebas de rendimiento en el directorio *'data/json_schemas'* ejecutamos el script *'docker_db.sh'*:
 ```
 ./docker_db.sh
 ```
-Este primero monta un contenedor de Docker para nuestra base de datos personal, a partir del script SQL 'docker/scripts_sql/postgresdb.sql'. Como esta base de datos almacenará los resultados, se genera un directorio de persistencia de datos denominado 'docker/postgresdb'.
+Este primero monta un contenedor de Docker para nuestra base de datos personal, a partir del script SQL *'docker/scripts_sql/postgresdb.sql'*. Como esta base de datos almacenará los resultados, se genera un directorio de persistencia de datos denominado *'docker/postgresdb'*.
 
-Después, el script continúa montando un contenedor de Docker, realizando pruebas de rendimiento (es decir, ejecutando los programas python que se encuentran en 'docker/scripts_python), guardando los datos recuperados en cada consulta, insertando los resultados de rendimiento en nuestra base de datos y desmontando el contenedor para cada servicio definido en el archivo 'docker/docker-compose.yml' de forma recursiva.
+Después, el script continúa montando un contenedor de Docker, realizando pruebas de rendimiento (es decir, ejecutando los programas Python que se encuentran en *'docker/scripts_python'*), guardando los datos recuperados en cada consulta, insertando los resultados de rendimiento en nuestra base de datos y desmontando el contenedor para cada servicio definido en el archivo *'docker/docker-compose.yml'* de forma recursiva.
 
-Al finalizar, se ejecuta el programa 'results_performance.py' que recupera los resultados de PostgreSQL en un documento XLSX que contiene las tablas con los resultados de las pruebas de rendimiento ('results_performance.xlsx') y que almacena en el directorio 'results' junto con los resultados de cada consulta en cada experimento.
+Al finalizar, se ejecuta el programa *'results_performance.py'* que recupera los resultados de PostgreSQL en un documento XLSX que contiene las tablas con los resultados de las pruebas de rendimiento (*'results_performance.xlsx'*) y que almacena en el directorio *'results'* junto con los resultados de cada consulta en cada experimento.
 
-En último lugar, ejecutamos el script 'visualization.sh' que nos abrirá una página en nuestro navegador por defecto con el puerto 5000, que es en el que se encuentra el servidor de nuestra aplicación web de visualización de datos:
+En último lugar, ejecutamos el script *'visualization.sh'* que nos abrirá una página en nuestro navegador por defecto con el puerto 5000, que es en el que se encuentra el servidor de nuestra aplicación web de visualización de datos:
 ```
 ./visualization.sh
 ```
@@ -72,9 +72,10 @@ Al abrirse la aplicación web nos encontramos con dos opciones:
 * **Resultados de rendimiento**: obtendremos gráficas de barras agrupadas por tamaños para los resultados de las pruebas de rendimiento realizadas. Nos encontraremos casillas de verificación para seleccionar las bases de datos y los tamaños del conjunto en meses que queremos comparar. Una vez seleccionado esto y la consulta para la que queremos gráficar los resultados, una vez que pulsemos el botón actualizar en caso de que sea necesario elegir el número de variables consultadas a comparar (porque realizamos consultas preguntando por 1, 5 y 20 variables) aparecerá una visualización vacía que nos indicará que debemos seleccionar este último parámetro que antes igual no estaba visible. Sólo tendremos que pulsar el botón de actualizar y volverá a estar disponible.
 
 En ambos nos encontraremos con un botón para ir atrás y con un botón situado debajo del gráfico en la parte derecha para poder descargar la visualización en formato PNG. Además, los gráficos son interactivos, podemos ampliarlos, modificar las escalas de los ejes o ver información detalla al pasar por encima del dato representado.
-Hay que mencionar que, en caso de que no exista la carpeta 'docker/results' nos aparecerá una pantalla de error con indicaciones.
+Hay que mencionar que, en caso de que no exista la carpeta *'docker/results'* nos aparecerá una pantalla de error con indicaciones.
 
-En caso de querer ver varios gráficos en diferentes pestañas, podemos abrir manualmente la misma dirección (http://127.0.0.1:5000/) en otra pestaña o en otro navegador, siempre y cuando no hayamos detenido el servidor en la terminal. Si queremos cerrar la aplicación basta con cerrar el navegador y presionar en la terminal de Linux 'CTRL+C'. 
+En caso de querer ver varios gráficos en diferentes pestañas, podemos abrir manualmente la misma dirección (http://127.0.0.1:5000/) en otra pestaña o en otro navegador, siempre y cuando no hayamos detenido el servidor en la terminal. Si queremos cerrar la aplicación basta con cerrar el navegador y presionar en la terminal de Linux 'CTRL+C'.
+
 ## Construido con 🛠️
 
 Las herramientas principales que hemos utilizado para llevar acabo este proyecto son las siguientes:
