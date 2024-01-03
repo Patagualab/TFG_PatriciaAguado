@@ -2,35 +2,35 @@
 
 El objetivo de este proyecto es realizar un estudio sobre el rendimiento de diferentes bases de datos de series temporales.
 
-## Comenzando 🚀
+¡Estos programas deben ser ejecutados en Linux!
 
-Para ejecutar este proyecto se necesitan los archivos de este repositorio y el directorio con los datos originales que se tendrá que solicitar de manera privada si se dispone de los permisos necesarios.
-
-Mira **Deployment** para conocer como desplegar el proyecto.
-
+Para ejecutar este proyecto se necesitan los archivos de este repositorio y el directorio con los datos originales que se tendrán que solicitar de manera privada si se dispone de los permisos necesarios.
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+En el archivo 'requirements.txt' podemos encontrar las bibliotecas de Python que hemos utilizado durante el desarrollo del trabajo. Para instalarlas deberemos ejecutar el siguiente comando y si lo desea puede crear antes un entorno virtual para que no afecten estás versiones a otras que tenga instaladas en su máquina.
 
 ```
-Da un ejemplo
+pip install -r requirements.txt
 ```
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+Para ejecutar este proyecto debemos instalar las siguientes herramientas de software:
 
-_Dí cómo será ese paso_
+Deberemos comprobar que la versión que tenemos de Python es la 3 y tener el instalador de paquetes pip. Para ello podrá ejecutar las siguientes líneas de código en su terminal de Linux.
+```
+sudo apt install python3
+sudo apt install pip
+```
+También tendremos que instalar [Docker](https://docs.docker.com/engine/install/ubuntu/). Para utilizar esta herramienta sin privilegios de superusuario podemos ejecutar lo siguiente:
 
 ```
-Da un ejemplo
-```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo systemctl restart docker
+sudo chmod 666 /var/run/docker.sock
 
-_Y repite_
-
-```
-hasta finalizar
 ```
 
 _Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
