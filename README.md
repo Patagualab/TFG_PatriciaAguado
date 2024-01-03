@@ -4,7 +4,7 @@ El objetivo de este proyecto es realizar un estudio sobre el rendimiento de dife
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+Para ejecutar este proyecto se necesitan los archivos de este repositorio y el directorio con los datos originales que se tendrá que solicitar de manera privada si se dispone de los permisos necesarios.
 
 Mira **Deployment** para conocer como desplegar el proyecto.
 
