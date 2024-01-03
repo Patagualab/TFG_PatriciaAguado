@@ -2,7 +2,7 @@
 
 El objetivo de este proyecto es realizar un estudio sobre el rendimiento de diferentes bases de datos de series temporales.
 
-¡Estos programas deben ser ejecutados en Linux!
+**¡Estos programas deben ser ejecutados en Linux!**
 
 Para ejecutar este proyecto se necesitan los archivos de este repositorio y el directorio con los datos originales que se tendrán que solicitar de manera privada si se dispone de los permisos necesarios.
 
@@ -66,11 +66,15 @@ En último lugar, ejecutamos el script 'visualization.sh' que nos abrirá una p�
 ./visualization.sh
 ```
 
-
 ## Utilización de la aplicación ⚙️
+Al abrirse la aplicación web nos encontramos con dos opciones:
+* **Resultados de consultas**: obtendremos gráficas de puntos o de líneas en función de la consulta sobre la que queramos observar los resultados. Podremos filtrar los datos a mostrar seleccionando la base de datos, el tamaño de meses y el número de variables consultadas que queremos. Una vez pulsemos el botón de actualizar podremos ver el gráfico deseado, pero si queremos por ejemplo seleccionar unos identificadores de sensor diferentes podremos elegirlos en las casillas de verificación pertinentes y volver a pulsar el botón de actualizar.
+* **Resultados de rendimiento**: obtendremos gráficas de barras agrupadas por tamaños para los resultados de las pruebas de rendimiento realizadas. Nos encontraremos casillas de verificación para seleccionar las bases de datos y los tamaños del conjunto en meses que queremos comparar. Una vez seleccionado esto y la consulta para la que queremos gráficar los resultados, una vez que pulsemos el botón actualizar en caso de que sea necesario elegir el número de variables consultadas a comparar (porque realizamos consultas preguntando por 1, 5 y 20 variables) aparecerá una visualización vacía que nos indicará que debemos seleccionar este último parámetro que antes igual no estaba visible. Sólo tendremos que pulsar el botón de actualizar y volverá a estar disponible.
 
+En ambos nos encontraremos con un botón para ir atrás y con un botón situado debajo del gráfico en la parte derecha para poder descargar la visualización en formato PNG. Además, los gráficos son interactivos, podemos ampliarlos, modificar las escalas de los ejes o ver información detalla al pasar por encima del dato representado.
+Hay que mencionar que, en caso de que no exista la carpeta 'docker/results' nos aparecerá una pantalla de error con indicaciones.
 
-
+En caso de querer ver varios gráficos en diferentes pestañas, podemos abrir manualmente la misma dirección (http://127.0.0.1:5000/) en otra pestaña o en otro navegador, siempre y cuando no hayamos detenido el servidor en la terminal. Si queremos cerrar la aplicación basta con cerrar el navegador y presionar en la terminal de Linux 'CTRL+C'. 
 ## Construido con 🛠️
 
 Las herramientas principales que hemos utilizado para llevar acabo este proyecto son las siguientes:
