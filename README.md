@@ -74,11 +74,11 @@ Al abrirse la aplicación web nos encontramos con dos opciones:
 En ambos nos encontraremos con un botón para ir atrás y con un botón situado debajo del gráfico en la parte derecha para poder descargar la visualización en formato PNG. Además, los gráficos son interactivos, podemos ampliarlos, modificar las escalas de los ejes o ver información detalla al pasar por encima del dato representado.
 Hay que mencionar que, en caso de que no exista la carpeta *'docker/results'* nos aparecerá una pantalla de error con indicaciones.
 
+En caso de querer ver varios gráficos en diferentes pestañas, podemos abrir manualmente la misma dirección (http://127.0.0.1:5000/) en otra pestaña o en otro navegador, siempre y cuando no hayamos detenido el servidor en la terminal.
+
 >[!NOTE]
    >
-   >This is note text.
->
-En caso de querer ver varios gráficos en diferentes pestañas, podemos abrir manualmente la misma dirección (http://127.0.0.1:5000/) en otra pestaña o en otro navegador, siempre y cuando no hayamos detenido el servidor en la terminal. Si queremos cerrar la aplicación basta con cerrar el navegador y presionar en la terminal de Linux 'CTRL+C'.
+   >Si queremos cerrar la aplicación basta con cerrar el navegador y presionar en la terminal de Linux 'CTRL+C'. 
 
 ## Construido con 🛠️
 
