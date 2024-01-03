@@ -35,14 +35,14 @@ pip install -r requirements.txt
 
 Teniendo en cuenta que hemos seguido los pasos anteriores y tenemos todo el software necesario, el primer paso será descargar este repositorio y obtener la carpeta *'raw_data'* con los datos originales que ubicaremos en *'TFG_PatriciaAguado/data/'*.
 
-A continuación, tendremos que dar permisos de ejecución al usuario para los scripts de bash:
+A continuación, tendremos que dar permisos de ejecución al usuario para los scripts de Bash:
 
 ```
 sudo chmod u+x docker_db.sh
 sudo chmod u+x process_data.sh
 sudo chmod u+x visualization.sh
 ```
-En primer lugar, abrimos una terminal en 'TFG_PatriciaAguado' y ejecutamos el script 'process_data.sh':
+En primer lugar, abrimos una terminal en *'TFG_PatriciaAguado'* y ejecutamos el script *'process_data.sh'*:
 ```
 ./process_data.sh
 ```
