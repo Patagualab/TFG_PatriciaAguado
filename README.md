@@ -33,11 +33,43 @@ pip install -r requirements.txt
 ```
 ## Ejecución 💻
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
+Teniendo en cuenta que hemos seguido los pasos anteriores y tenemos todo el software necesario, el primer paso será descargar este repositorio y obtener la carpeta 'raw_data' con los datos originales que ubicaremos en 'TFG_PatriciaAguado/data/'.
+
+A continuación, tendremos que dar permisos de ejecución al usuario para los scripts de bash:
+
+```
+sudo chmod u+x docker_db.sh
+sudo chmod u+x process_data.sh
+sudo chmod u+x visualization.sh
+```
+En primer lugar, abrimos una terminal en 'TFG_PatriciaAguado' y ejecutamos el script 'process_data.sh':
+```
+./process_data.sh
+```
+Este se encarga de ejecutar en orden los programas de Python que se encuentran en el directorio 'data'. Estos consisten en:
+* 'read_data.py': leer todos los archivos que se encuentran en el directorio 'data/raw_data' y juntarlos para generar el archivo 'data/silver_data.xlsx'.
+* 'clean_data.py': realizar sobre 'silver_data.xlsx' un proceso de limpieza de datos y generar en el directorio 'data/gold_data'} un archivo con todos los datos de calidad y uno por cada tamaño especificado (3, 6, 10 y 13 meses).
+* 'json_schemas.py': crear un directorio 'data/json_schemas', en el que se crea un directorio por cada base de datos y en cada uno de ellos un archivo de formato JSON para cada tamaño.
+  
+En segundo lugar, una vez que ya tenemos todos los archivos preparados con los datos que queremos insertar para las pruebas de rendimiento en el directorio 'data/json_schemas' ejecutamos el script 'docker_db.sh':
+```
+./docker_db.sh
+```
+Este primero monta un contenedor de Docker para nuestra base de datos personal, a partir del script SQL 'docker/scripts_sql/postgresdb.sql'. Como esta base de datos almacenará los resultados, se genera un directorio de persistencia de datos denominado 'docker/postgresdb'.
+
+Después, el script continúa montando un contenedor de Docker, realizando pruebas de rendimiento (es decir, ejecutando los programas python que se encuentran en 'docker/scripts_python), guardando los datos recuperados en cada consulta, insertando los resultados de rendimiento en nuestra base de datos y desmontando el contenedor para cada servicio definido en el archivo 'docker/docker-compose.yml' de forma recursiva.
+
+Al finalizar, se ejecuta el programa 'results_performance.py' que recupera los resultados de PostgreSQL en un documento XLSX que contiene las tablas con los resultados de las pruebas de rendimiento ('results_performance.xlsx') y que almacena en el directorio 'results' junto con los resultados de cada consulta en cada experimento.
+
+En último lugar, ejecutamos el script 'visualization.sh' que nos abrirá una página en nuestro navegador por defecto con el puerto 5000, que es en el que se encuentra el servidor de nuestra aplicación web de visualización de datos:
+```
+./visualization.sh
+```
+
 
 ## Utilización de la aplicación ⚙️
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
+
 
 ## Construido con 🛠️
 
