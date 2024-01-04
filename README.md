@@ -8,7 +8,7 @@ Para ejecutar este proyecto se necesitan los archivos de este repositorio y el d
 
 ### Instalación 🔧
 
-Para ejecutar este proyecto deberemos comprobar que la versión que tenemos de Python es la 3 y tener el instalador de paquetes pip. Para ello podrá ejecutar las siguientes líneas de código en su terminal de Linux.
+Para ejecutar este proyecto deberemos comprobar que la versión que tenemos de Python es la 3 y tener el instalador de paquetes pip. Para ello podrá ejecutar las siguientes líneas de código en su terminal de Linux:
 ```
 sudo apt install python3
 sudo apt install pip
