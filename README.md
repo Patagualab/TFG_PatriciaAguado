@@ -76,7 +76,7 @@ En caso de querer ver varios gráficos en diferentes pestañas, podemos abrir ma
 
 >[!NOTE]
    >
-   >Si queremos cerrar la aplicación basta con cerrar el navegador y presionar en la terminal de Linux 'CTRL+C'. 
+   >Si queremos cerrar la aplicación basta con cerrar el navegador y presionar en la terminal de Linux *'CTRL+C'*. 
 
 ## Construido con 🛠️
 
