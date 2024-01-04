@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ```
 ## Ejecución 💻
 
-Teniendo en cuenta que hemos seguido los pasos anteriores y tenemos todo el software necesario, el primer paso será descargar este repositorio y obtener la carpeta *'raw_data'* con los datos originales que ubicaremos en *'TFG_PatriciaAguado/data/'*.
+Teniendo en cuenta que hemos seguido los pasos anteriores y tenemos todo el software necesario, el primer paso será descargar este repositorio y obtener la carpeta *'raw_data'* con los datos originales y que tendremos que ubicar en *'TFG_PatriciaAguado/data/'*.
 
 A continuación, tendremos que dar permisos de ejecución al usuario para los scripts de Bash:
 
