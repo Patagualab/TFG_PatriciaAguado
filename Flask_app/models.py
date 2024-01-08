@@ -458,7 +458,7 @@ def generate_interactive_chart_pr(data, value_query, query_options):
 
     else:
         if(value_query in ["Consulta inserción","Consulta almacenamiento"]):
-            y_title = "Latencia consulta (ms)"
+            y_title = "Latencia consulta (s)"
             if(value_query=="Consulta almacenamiento"):
                 y_title = "Espacio consumido (MB)"
 
