@@ -219,7 +219,7 @@ for batch in batchs:
 
 time.sleep(20)
 # Almacenar resultado
-result_query_mdata = (id_exp_data+1,db_exp,size_exp,round(time_exp_ms_data,3))
+result_query_mdata = (id_exp_data+1,db_exp,size_exp,round(time_exp_ms_data_total,3))
 #print("\n************************************************************************")
 #print("tables ---> m_data")
 #print(result_query_mdata)
