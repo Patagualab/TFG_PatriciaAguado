@@ -63,7 +63,11 @@ En último lugar, ejecutamos el script *'visualization.sh'* que nos abrirá una 
 ```
 ./visualization.sh
 ```
-
+También podemos ir directamente al directorio *'Flask_app'* abrir una terminal y escribir los siguientes comandos:
+```
+export FLASK_APP="controller.py"
+flask run
+```
 ## Utilización de la aplicación ⚙️
 Al abrirse la aplicación web nos encontramos con dos opciones:
 * **Resultados de consultas**: obtendremos gráficas de puntos o de líneas en función de la consulta sobre la que queramos observar los resultados. Podremos filtrar los datos a mostrar seleccionando la base de datos, el tamaño de meses y el número de variables consultadas que queremos. Una vez pulsemos el botón de actualizar podremos ver el gráfico deseado, pero si queremos por ejemplo seleccionar unos identificadores de sensor diferentes podremos elegirlos en las casillas de verificación pertinentes y volver a pulsar el botón de actualizar.
